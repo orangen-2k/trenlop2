@@ -20,6 +20,7 @@ import { RoomsDetailComponent } from './rooms-detail/rooms-detail.component';
     RouterModule.forRoot([
       {path: '', component: HotelsComponent},
       {path: 'detail1/:hotelId', component: HotelDetailComponent},
+      {path: 'rooms/:hotelId', component: RoomsDetailComponent},
       {path: 'add-hotel', component: HotelFormComponent},
       {path: 'edit-hotel/:id', component: HotelFormComponent},
     ])

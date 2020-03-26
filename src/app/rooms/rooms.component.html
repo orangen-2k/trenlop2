@@ -1,3 +1,5 @@
-<p>
-rooms works!
-</p>
+<ul>
+  <li *ngFor="let room of rooms">
+    <a [routerLink]="['rooms', room.id]">{{room.id}}</a>
+  </li>
+</ul> 
