@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HotelService} from '../hotel.service';
+
 @Component({
   selector: 'app-hotels',
   templateUrl: './hotels.component.html',
@@ -17,4 +18,4 @@ export class HotelsComponent implements OnInit {
     });
   }
 
-}
+} 

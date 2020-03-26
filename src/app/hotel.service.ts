@@ -28,4 +28,11 @@ export class HotelService {
     let url = `${apiUrl}/${hotelObject.id}`;
     return this.http.put<any>(url, hotelObject);
   }
+  getRooms(): Observable<any>{
+    return this.http.get<any>(apiUrl);
+  }
+  getRoomsById(roomId): Observable<any>{
+    let url = `${apiUrl}/${roomId}`;
+    return this.http.get<any>(url);
+  }
 }
