@@ -20,4 +20,12 @@ export class HotelService {
     let url = `${apiUrl}/${hotelId}`;
     return this.http.delete<any>(url);
   }
+  addNewHotel(hotelObject): Observable<any>{
+    return this.http.post<any>(apiUrl, hotelObject);
+  }
+
+  updateHotel(hotelObject): Observable<any>{
+    let url = `${apiUrl}/${hotelObject.id}`;
+    return this.http.put<any>(url, hotelObject);
+  }
 }
