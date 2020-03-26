@@ -20,7 +20,7 @@ export class RoomsDetailComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params => {
       let hotelId = params.get('hotelId');
-      this.hotelService.getHotelById(hotelId).subscribe(data => {
+      this.hotelService.getRoomsById(hotelId).subscribe(data => {
         console.log(data);
         this.hotelData = data;
       })
