@@ -1,0 +1,20 @@
+<pre> {{hotelForm.value | json}} </pre>
+<form [formGroup]="hotelForm">
+  <div>
+    <label for="">Tên khách sạn:</label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label for="">Logo khách sạn:</label>
+    <input type="text" formControlName="logo">
+  </div>
+  <div>
+    <label for="">Địa chỉ khách sạn:</label>
+    <input type="text" formControlName="address">
+  </div>
+  <div>
+    <label for="">Đất nước:</label>
+    <input type="text" formControlName="country">
+  </div>
+  <button >Lưu</button>
+</form>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const apiUrl = 'https://5e7487579dff1200163537d7.mockapi.io/hotels';
+const apiUrl = 'https://5e79b4f917314d0016133404.mockapi.io/hotetels';
 @Injectable()
 export class HotelService {
 
