@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HotelService } from "../hotel.service";
+import { FormControl, FormGroup,FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: "app-hotel-detail",
@@ -9,10 +10,45 @@ import { HotelService } from "../hotel.service";
 })
 export class HotelDetailComponent implements OnInit {
   hotelData = null;
+  classs = [];
+  classForm = this.fbuiler.group({
+    id: new FormControl(null),
+    name: ["",[
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z]+[ a-zA-Z ]*')
+    ]],
+    hotetelId: ["",[
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(1),
+      Validators.pattern('[0-9]*')
+    ]],
+    room_number: ["",[
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(1),
+      Validators.pattern('[0-9a-zA-Z]+[0-9a-zA-Z ]*')
+    ]],
+    total_student: ["",[
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(1),
+      Validators.pattern('[0-9]*')
+    ]],
+    main_teacher: ["",[
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z]+[ a-zA-Z ]*')
+    ]],
+});
   constructor(
     private hotelService: HotelService,
     private activeRoute: ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private fbuiler: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -22,7 +58,53 @@ export class HotelDetailComponent implements OnInit {
         console.log(data);
         this.hotelData = data;
       });
+      this.hotelService.getClass(schoolsId).subscribe(data => {
+        console.log(data);
+        this.classs = data;
+      });
     });
+  }
+  saveClass() {
+    this.classForm.value.schoolId = this.hotelData.id;
+    if (this.classForm.value.id == null) {
+      this.hotelService.addClass(this.hotelData.id, this.classForm.value).subscribe(data => {
+        this.ngOnInit();
+      });
+    } else {
+      this.hotelService.updateClass(this.hotelData.id, this.classForm.value).subscribe(data => {
+        console.log(data);
+        this.ngOnInit();
+      });
+    }
+    let close = document.getElementById("close");
+    close.click();
+  }
+
+  removeClass(student) {
+    let conf = confirm("Bạn muốn xóa lớp này?");
+    if (conf == true) {
+      this.hotelService.removeClass(student.id, this.hotelData.id).subscribe(data => {
+        this.ngOnInit();
+      });
+    }
+  }
+   editStudent(student) {
+    console.log(this.hotelData.id);
+    console.log(student.id);
+    this.hotelService.getClassById(this.hotelData.id, student.id).subscribe(data => {
+        console.log(data);
+        this.classForm.setValue(data);
+    });
+  }
+canelClass() {
+    this.classForm = this.fbuiler.group({
+      id: new FormControl(null),
+      name: new FormControl(null),
+      hotetelId: new FormControl(null),
+      room_number: new FormControl(null),
+      total_student: new FormControl(null),
+      main_teacher: new FormControl(null),
+});
   }
   myFunction() {
   var input, filter, table, tr, td, i, txtValue;

@@ -27,4 +27,24 @@ export class HotelService {
     let url = `${apiUrl}/${hotelObject.id}`;
     return this.http.put<any>(url, hotelObject);
   }
+ getClass(schoolsId): Observable<any> {
+     let url = `${apiUrl}/${schoolsId}/rooms`;
+    return this.http.get<any>(url);
+  }
+  getClassById(schoolsId, classId): Observable<any> {
+    let url = `${apiUrl}/${schoolsId}/rooms/${classId}`;
+    return this.http.get<any>(url);
+  }
+  removeClass(classId, schoolsId): Observable<any>{
+    let url = `${apiUrl}/${schoolsId}/rooms/${classId}`;
+    return this.http.delete<any>(url);
+  }
+  addClass(schoolsId, classId): Observable<any> {
+    let url = `${apiUrl}/${schoolsId}/rooms`;
+    return this.http.post<any>(url, classId);
+  }
+  updateClass(schoolsId, classId): Observable<any>{
+    let url = `${apiUrl}/${schoolsId}/rooms/${classId.id}`;
+    return this.http.put<any>(url, classId);
+  }
 }

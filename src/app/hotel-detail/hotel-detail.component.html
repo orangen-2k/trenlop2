@@ -13,8 +13,8 @@
             <div class="card-body">
               <h4 class="card-title">{{hotelData.name}}</h4>
               <h5 class="card-text">Địa chỉ: <span class="font-weight-normal">{{hotelData.address}}</span></h5>
-              <h5 class="card-text">Tên hiệu trưởng: <span class="font-weight-normal">{{hotelData.country}}</span></h5>
-              <h5 class="card-text">Tỉnh/thành phố: <span class="font-weight-normal">{{hotelData.country}}</span></h5>
+              <h5 class="card-text">Tên hiệu trưởng: <span class="font-weight-normal">{{hotelData.president}}</span></h5>
+              <h5 class="card-text">Tỉnh/thành phố: <span class="font-weight-normal">{{hotelData.province}}</span></h5>
             </div>
           </div>
         </div>
@@ -34,7 +34,52 @@
     <td>&nbsp;
       <input (click)="editStudent(class)" class="btn btn-sm btn-info" type="button"value="Edit" 
       data-toggle="modal" data-target="#exampleModal" />&nbsp;
-      <input (click)="removeHotel()"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
+      <input (click)="removeClass()"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
     </td>
   </tr></table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header border-bottom" style="border-bottom-width: 0px;">
+				<h5 class="modal-title" id="exampleModalLabel">Thông tin chi tiết</h5>
+				<a type="button" class="close" id="close" (click)="canelClass();" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></a>
+			</div>
+			<div class="modal-body">
+				<form [formGroup] = "classForm">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="">Chuyên ngành</label>
+							<input type="text" class="form-control" placeholder="Chuyên ngành" formControlName="name">
+            </div>
+					  <div class="form-group col-md-6">
+								<label for="">Tên lớp</label>
+								<input type="text" class="form-control" placeholder="Tên lớp" formControlName="room_number">
+            </div>
+					</div>
+					<div class="form-group mt-2">
+								<label for="">Số học sinh</label>
+								<input type="text" class="form-control" placeholder="Số học sinh" formControlName="total_student">
+          </div>
+					<div class="form-row">
+						<div class="form-group col-md-8">
+							<label for="">Giáo viên chủ nhiệm</label>
+							<input type="text" class="form-control" placeholder="Giáo viên chủ nhiệm" formControlName="main_teacher">
+            </div>
+						<div class="form-group col-md-4">
+							<label for="">ID trường</label>
+							<input type="text" class="form-control" placeholder="ID trường" formControlName="hotetelId">
+            </div>
+            <div class="form-group col-md-4">
+							<label for="">ID trường</label>
+            </div>
+				</div>
+				</form>
+			</div>
+			<div class="modal-footer justify-content-center" style="border-top-width: 0px;">
+        <button type="button" class="btn btn-primary" (click)="saveClass();" data-dismiss="modal">Lưu</button>
+			</div>
+		</div>
+	</div>
 </div>
