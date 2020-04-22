@@ -9,19 +9,22 @@ import {SchoolsService} from '../schools.service';
 })
 export class ShowallComponent implements OnInit {
 
-  schools = [];
-  pagedItems: Array<any>;
   constructor(
     private activeRoute: ActivatedRoute,
     private route: Router,
-    private schoolsService: SchoolsService) { }
+    private schoolsService: SchoolsService
+    ) { }
+
   ngOnInit() {
     this.schoolsService.getSchools().subscribe(data => {
       console.log(data);
       this.schools = data;
     });
   }
-  beginPagination(pagedItems: Array<any>) {
-    this.pagedItems = pagedItems;
+
+  schools = [];
+  array: Array<any>;
+  beginPagination(array: Array<any>) {
+    this.array = array;
   }
 }
