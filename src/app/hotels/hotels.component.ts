@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import {HotelService} from '../hotel.service';
 
 @Component({
@@ -9,7 +9,6 @@ import {HotelService} from '../hotel.service';
 })
 export class HotelsComponent implements OnInit {
 
-  hotels = [];
   constructor(
     private activeRoute: ActivatedRoute,
     private route: Router,
@@ -21,6 +20,9 @@ export class HotelsComponent implements OnInit {
       this.hotels = data;
     });
   }
+  
+  hotels = [];
+  
   removeSchools(School) {
     let conf = confirm("Bạn muốn xóa trường này?");
     if (conf == true) {

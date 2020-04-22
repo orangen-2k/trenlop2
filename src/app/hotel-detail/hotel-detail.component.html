@@ -34,10 +34,12 @@
     <td>&nbsp;
       <input (click)="editStudent(class)" class="btn btn-sm btn-info" type="button"value="Edit" 
       data-toggle="modal" data-target="#exampleModal" />&nbsp;
-      <input (click)="removeClass()"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
+      <input (click)="removeClass(class)"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
     </td>
   </tr></table>
 </div>
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -52,24 +54,29 @@
 						<div class="form-group col-md-6">
 							<label for="">Chuyên ngành</label>
 							<input type="text" class="form-control" placeholder="Chuyên ngành" formControlName="name">
+							<label *ngIf="classname" class="text-danger"> {{classname}} </label>
             </div>
 					  <div class="form-group col-md-6">
 								<label for="">Tên lớp</label>
 								<input type="text" class="form-control" placeholder="Tên lớp" formControlName="room_number">
+                <label *ngIf="classroom_number" class="text-danger"> {{classroom_number}} </label>
             </div>
 					</div>
 					<div class="form-group mt-2">
 								<label for="">Số học sinh</label>
 								<input type="text" class="form-control" placeholder="Số học sinh" formControlName="total_student">
+                <label *ngIf="classtotal_student" class="text-danger"> {{classtotal_student}} </label>
           </div>
 					<div class="form-row">
 						<div class="form-group col-md-8">
 							<label for="">Giáo viên chủ nhiệm</label>
 							<input type="text" class="form-control" placeholder="Giáo viên chủ nhiệm" formControlName="main_teacher">
+							<label *ngIf="classmain_teacher" class="text-danger"> {{classmain_teacher}} </label>
             </div>
 						<div class="form-group col-md-4">
 							<label for="">ID trường</label>
 							<input type="text" class="form-control" placeholder="ID trường" formControlName="hotetelId">
+							<label *ngIf="classschoolId" class="text-danger"> {{classschoolId}} </label>
             </div>
             <div class="form-group col-md-4">
 							<label for="">ID trường</label>
@@ -78,7 +85,7 @@
 				</form>
 			</div>
 			<div class="modal-footer justify-content-center" style="border-top-width: 0px;">
-        <button type="button" class="btn btn-primary" (click)="saveClass();" data-dismiss="modal">Lưu</button>
+        <button type="button" class="btn btn-primary" (click)="saveClass();" data-dismiss="modal" [disabled]="!classForm.valid">Lưu</button>
 			</div>
 		</div>
 	</div>
