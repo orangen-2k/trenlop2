@@ -15,23 +15,6 @@ export class HotelService {
     let url = `${apiUrl}/${hotelId}`;
     return this.http.get<any>(url);
   }
-
-  getRooms(): Observable<any>{
-    return this.http.get<any>(apiUrl+"/3"+"/rooms");
-  }
-  getRoomsById(roomId): Observable<any>{
-    let url = `${apiUrl+"/3"+"/rooms"}/${roomId}`;
-    return this.http.get<any>(url);
-  }
-
-
-
-
-
-
-
-
-
   removeHotelById(hotelId): Observable<any>{
     let url = `${apiUrl}/${hotelId}`;
     return this.http.delete<any>(url);

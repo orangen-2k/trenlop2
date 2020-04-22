@@ -1,6 +1,20 @@
-<a routerLink="add-hotel">Tạo mới</a>
-<ul>
-  <li *ngFor="let hotel of hotels">
-    <a [routerLink]="['detail1', hotel.id]">{{hotel.name}}</a>
-  </li>
-</ul> 
+<input id="myInput" class="timkiem" type="text"  placeholder=" Tìm kiếm..."/>&nbsp;
+<button (click)="myFunction()" class="bttk">Tìm kiếm</button> &nbsp;
+<button routerLink="add-hotel" class="bttk">Thêm</button>
+<br><br>
+<div class="cuon" id="test_1">
+  <table border="1" align="center" id="myTable">
+    <tr>
+      <th width="500">Danh sách trường học</th>
+      <th width="300">Action</th>
+    </tr>
+    <tr *ngFor="let school of hotels ">
+      <td>{{school.name}}</td>
+      <td>&nbsp;
+        <input [routerLink]="['detail1', school.id]"  class="btn btn-sm btn-success" type="button" value="Show"/>&nbsp;
+        <input [routerLink]="['../../edit-hotel', school.id]"  class="btn btn-sm btn-info" type="button" value="Edit"/>&nbsp;
+         <input (click)="removeSchools(school)"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
+      </td>
+    </tr>
+  </table>
+</div>

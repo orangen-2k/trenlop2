@@ -32,18 +32,17 @@ export class HotelFormComponent implements OnInit {
   }
   saveHotel(){
     if(this.hotelForm.value.id == null){
-      // thêm mới
       this.hotelService.addNewHotel(this.hotelForm.value).subscribe(data => {
         console.log(data);
         this.route.navigate(['']);
       })
     }else{
-      // cập nhật
       this.hotelService.updateHotel(this.hotelForm.value).subscribe(data => {
         console.log(data);
         this.route.navigate(['']);
       })
     }
+    // this.canelSchools();
   }
 
 }

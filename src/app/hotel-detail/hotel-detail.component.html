@@ -1,8 +1,40 @@
-<h2>{{hotelData.name}}</h2>
-<img [src]="hotelData.logo" width="150">
+<input id="myInput" class="timkiem" type="text"  placeholder=" Tìm kiếm..."/>&nbsp;<button (click)="myFunction()"lass="bttk">Tìm kiếm</button>&nbsp;
+<button data-toggle="modal"data-target="#exampleModal" class="bttk">Thêm</button>&nbsp;
+<button [routerLink]="['../../edit-hotel', hotelData.id]"  class="bttk">Sửa</button>
+<div class="container">
+  <div class="row">
+  <div class="col-12 d-flex justify-content-center mt-5">
+      <div class="card mb-3 col-md-6">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]="hotelData.logo" class="card-img py-3" [alt]="hotelData.logo" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{hotelData.name}}</h4>
+              <h5 class="card-text">Địa chỉ: <span class="font-weight-normal">{{hotelData.address}}</span></h5>
+              <h5 class="card-text">Tên hiệu trưởng: <span class="font-weight-normal">{{hotelData.country}}</span></h5>
+              <h5 class="card-text">Tỉnh/thành phố: <span class="font-weight-normal">{{hotelData.country}}</span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
 <br>
-<h3>{{hotelData.address}}, {{hotelData.country}}</h3>
-<a [routerLink]="['../../edit-hotel', hotelData.id]">Cập nhật</a> 
-&nbsp;
-<button (click)="removeHotel()">Delete</button>
-<app-rooms></app-rooms>
+<div class="cuon" id="test_1" >
+  <table border="1" align="center" id="myTable">
+  <tr>
+    <th width="600">Danh sách các lớp trong trường</th>
+    <th width="200">Action</th>
+  </tr>
+  <tr *ngFor="let class of classs">
+    <td>{{class.name}}</td>
+    <td>&nbsp;
+      <input (click)="editStudent(class)" class="btn btn-sm btn-info" type="button"value="Edit" 
+      data-toggle="modal" data-target="#exampleModal" />&nbsp;
+      <input (click)="removeHotel()"  class="btn btn-sm btn-danger" type="button" value="Delete"/>
+    </td>
+  </tr></table>
+</div>

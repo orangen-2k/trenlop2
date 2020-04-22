@@ -1,20 +1,31 @@
-<pre> {{hotelForm.value | json}} </pre>
-<form [formGroup]="hotelForm">
-  <div>
-    <label for="">Tên khách sạn:</label>
-    <input type="text" formControlName="name">
+<div class="container">
+<div class="row">
+  <table [formGroup]="hotelForm" >
+    <tr>
+      <td>Tên trường:</td>
+      <td><input type="text" formControlName="name" placeholder="Tên trường" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Logo trường:</td>
+      <td><input type="text" formControlName="logo" placeholder="Logo trường" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Địa chỉ:</td>
+      <td><input type="text" formControlName="address" placeholder="Địa chỉ" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Tên hiệu trưởng:</td>
+      <td><input type="text" formControlName="country" placeholder="Tên hiệu trưởng" class="form-control"></td>
+    </tr>
+  </table>
+  <div class="imga" [formGroup]="hotelForm">
+    <img width="250" [src]="hotelForm.value.logo" class="img-fluid"/>
   </div>
-  <div>
-    <label for="">Logo khách sạn:</label>
-    <input type="text" formControlName="logo">
-  </div>
-  <div>
-    <label for="">Địa chỉ khách sạn:</label>
-    <input type="text" formControlName="address">
-  </div>
-  <div>
-    <label for="">Đất nước:</label>
-    <input type="text" formControlName="country">
-  </div>
-  <button (click)="saveHotel()" >Lưu</button>
-</form>
+</div>
+<br>
+<div class="btttn">
+  <button (click)="saveHotel()" class="btn btn-sm btn-success">Lưu</button>&nbsp;&nbsp;
+  <button (click)="canelSchools()" class="btn btn-sm btn-success">Làm mới</button>
+</div>
+</div>
+<br>

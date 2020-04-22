@@ -1,9 +1,28 @@
-<h2>Hello pt14306-UD</h2>
-<ul>
-  <li>
-    <a title="Homepage" routerLink="/">
-      Trang chủ
-    </a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<body>
+  <div class="header">
+    <img width="500"  src="https://1.bp.blogspot.com/-mi3ahxFXtNU/WlEZz96UQFI/AAAAAAAANAY/Vb8nqRrIqPIZyUSx4yETGQ2YJfFYR5cmwCLcBGAs/s1600/CE3Uoic.jpg"/>
+  </div>
+  <div class="menu">
+    <ul>
+        <li><a routerLink="add">Trang chủ</a></li>
+        <li class="trangchu"><a routerLink="/">Quản lý</a></li>
+        <li><a routerLink="add">Gợi ý</a></li>
+        <li><a routerLink="add">Liên hệ</a></li>
+       </ul>
+  </div>
+  <br>
+  <div class="slg">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="content">
+  <br>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <div class="diachi">
+        <p> <strong>Seacher</strong></p>
+    </div> 
+  </div>
+</body>
+
+  

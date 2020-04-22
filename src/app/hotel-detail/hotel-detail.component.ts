@@ -17,20 +17,30 @@ export class HotelDetailComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params => {
-      let hotelId = params.get("hotelId");
-      this.hotelService.getHotelById(hotelId).subscribe(data => {
+      let schoolsId = params.get("schoolsId");
+      this.hotelService.getHotelById(schoolsId).subscribe(data => {
         console.log(data);
         this.hotelData = data;
       });
     });
   }
-
-  removeHotel() {
-    let conf = confirm("Bạn chắc chắn muốn xóa khách sạn này?");
-    if (conf) {
-      this.hotelService.removeHotelById(this.hotelData.id).subscribe(data => {
-        this.route.navigate([""]);
-      });
-    }
+  myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
   }
+}
+
 }
