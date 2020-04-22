@@ -2,7 +2,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {SchoolsService} from '../schools.service';
 
-
 @Component({
   selector: 'app-schools',
   templateUrl: './schools.component.html',
@@ -13,7 +12,8 @@ export class SchoolsComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private route: Router,
-    private schoolsService: SchoolsService) { }
+    private schoolsService: SchoolsService
+    ) { }
 
   ngOnInit() {
     this.schoolsService.getSchools().subscribe(data => {
