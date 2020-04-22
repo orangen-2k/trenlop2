@@ -17,9 +17,9 @@ import { HotelFormComponent } from './hotel-form/hotel-form.component';
     BrowserModule, FormsModule, HttpClientModule,ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: HotelsComponent},
-      {path: 'add-hotel', component: HotelFormComponent},
+      {path: 'add', component: HotelFormComponent},
       {path: 'detail1/:schoolsId', component: HotelDetailComponent},
-      {path: 'edit-hotel/:id', component: HotelFormComponent},
+      {path: 'edit/:id', component: HotelFormComponent},
     ])
   ],
   declarations: [ AppComponent, HotelsComponent, HotelDetailComponent, HotelFormComponent ],
