@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HotelService } from '../hotel.service';
+import {SchoolsService} from '../schools.service';
 import { FormControl, FormGroup,FormBuilder,Validators } from '@angular/forms';
 
 @Component({
@@ -12,21 +12,21 @@ export class AddSchComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private hotelService: HotelService,
+    private schoolsService: SchoolsService,
     private fbuiler: FormBuilder,
     private route: Router,
   ) { }
 
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params =>{
-      let hotelId = params.get('id');
-      this.hotelService.getHotelById(hotelId).subscribe(data => {
-       this.hotelForm.setValue(data);
+      let schoolId = params.get('id');
+      this.schoolsService.getSchoolById(schoolId).subscribe(data => {
+       this.schoolsForm.setValue(data);
       })
     })
   }
 
-    hotelForm = this.fbuiler.group({
+    schoolsForm = this.fbuiler.group({
     id: new FormControl(null),
     name: ["",[
       Validators.required,
@@ -60,13 +60,13 @@ export class AddSchComponent implements OnInit {
     ]],
 });
   saveHotel(){
-    if(this.hotelForm.value.id == null){
-      this.hotelService.addNewHotel(this.hotelForm.value).subscribe(data => {
+    if(this.schoolsForm.value.id == null){
+      this.schoolsService.addNewSchool(this.schoolsForm.value).subscribe(data => {
         console.log(data);
         this.route.navigate(['']);
       })
     }else{
-      this.hotelService.updateHotel(this.hotelForm.value).subscribe(data => {
+      this.schoolsService.updateSchool(this.schoolsForm.value).subscribe(data => {
         console.log(data);
         this.route.navigate(['']);
       })
@@ -74,7 +74,7 @@ export class AddSchComponent implements OnInit {
     this.canelSchools();
   }
 canelSchools() {
-    this.hotelForm = this.fbuiler.group({
+    this.schoolsForm = this.fbuiler.group({
       id: new FormControl(null),
       name: new FormControl(null),
       hotetelId: new FormControl(null),
@@ -102,22 +102,22 @@ canelSchools() {
   }
 
   get schoolname (){
-    return this.check(this.hotelForm.controls.name); 
+    return this.check(this.schoolsForm.controls.name); 
   }
 
   get schoolpresident (){
-    return this.check(this.hotelForm.controls.president); 
+    return this.check(this.schoolsForm.controls.president); 
   }
 
   get schoollogo (){
-    return this.check(this.hotelForm.controls.logo); 
+    return this.check(this.schoolsForm.controls.logo); 
   }
 
   get schooladdress (){
-    return this.check(this.hotelForm.controls.address); 
+    return this.check(this.schoolsForm.controls.address); 
   }
 
   get schoolprovince (){
-    return this.check(this.hotelForm.controls.province); 
+    return this.check(this.schoolsForm.controls.province); 
   }
 }

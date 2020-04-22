@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { HotelService } from "../hotel.service";
+import {SchoolsService} from '../schools.service';
 import { FormControl, FormGroup,FormBuilder,Validators } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControl, FormGroup,FormBuilder,Validators } from '@angular/forms';
 export class ClasssComponent implements OnInit {
 
    constructor(
-    private hotelService: HotelService,
+    private schoolsService: SchoolsService,
     private activeRoute: ActivatedRoute,
     private route: Router,
     private fbuiler: FormBuilder
@@ -20,18 +20,18 @@ export class ClasssComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params => {
       let schoolsId = params.get("schoolsId");
-      this.hotelService.getHotelById(schoolsId).subscribe(data => {
+      this.schoolsService.getSchoolById(schoolsId).subscribe(data => {
         console.log(data);
-        this.hotelData = data;
+        this.schoolsData = data;
       });
-      this.hotelService.getClass(schoolsId).subscribe(data => {
+      this.schoolsService.getClass(schoolsId).subscribe(data => {
         console.log(data);
         this.classs = data;
       });
     });
   }
 
-  hotelData = null;
+  schoolsData = null;
   classs = [];
   classForm = this.fbuiler.group({
     id: new FormControl(null),
@@ -68,13 +68,13 @@ export class ClasssComponent implements OnInit {
 });
  
   saveClass() {
-    this.classForm.value.schoolId = this.hotelData.id;
+    this.classForm.value.schoolId = this.schoolsData.id;
     if (this.classForm.value.id == null) {
-      this.hotelService.addClass(this.hotelData.id, this.classForm.value).subscribe(data => {
+      this.schoolsService.addClass(this.schoolsData.id, this.classForm.value).subscribe(data => {
         this.ngOnInit();
       });
     } else {
-      this.hotelService.updateClass(this.hotelData.id, this.classForm.value).subscribe(data => {
+      this.schoolsService.updateClass(this.schoolsData.id, this.classForm.value).subscribe(data => {
         console.log(data);
         this.ngOnInit();
       });
@@ -86,16 +86,16 @@ export class ClasssComponent implements OnInit {
   removeClass(student) {
     let conf = confirm("Bạn muốn xóa lớp này?");
     if (conf == true) { 
-      this.hotelService.removeClass(student.id, this.hotelData.id).subscribe(data => {
+      this.schoolsService.removeClass(student.id, this.schoolsData.id).subscribe(data => {
         this.ngOnInit();
       });
     }
   }
 
    editStudent(student) {
-    console.log(this.hotelData.id);
+    console.log(this.schoolsData.id);
     console.log(student.id);
-    this.hotelService.getClassById(this.hotelData.id, student.id).subscribe(data => {
+    this.schoolsService.getClassById(this.schoolsData.id, student.id).subscribe(data => {
         console.log(data);
         this.classForm.setValue(data);
     });

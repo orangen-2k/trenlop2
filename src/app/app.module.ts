@@ -6,13 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { HotelsComponent } from './hotels/hotels.component';
 import { HotelService } from './hotel.service';
-import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
-import { HotelFormComponent } from './hotel-form/hotel-form.component';
 import { SchoolsComponent } from './schools/schools.component';
 import { ClasssComponent } from './classs/classs.component';
 import { AddSchComponent } from './add-sch/add-sch.component';
+import { SchoolsService } from './schools.service';
 
 
 @NgModule({
@@ -25,8 +23,8 @@ import { AddSchComponent } from './add-sch/add-sch.component';
       {path: 'edit/:id', component: AddSchComponent},
     ])
   ],
-  declarations: [ AppComponent, HotelsComponent, HotelDetailComponent, HotelFormComponent, SchoolsComponent, ClasssComponent, AddSchComponent ],
+  declarations: [ AppComponent, SchoolsComponent, ClasssComponent, AddSchComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HotelService]
+  providers: [HotelService, SchoolsService]
 })
 export class AppModule { }

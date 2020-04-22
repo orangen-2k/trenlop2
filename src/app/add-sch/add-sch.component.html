@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row">
-  <table [formGroup]="hotelForm" >
+  <table [formGroup]="schoolsForm" >
     <tr>
       <td>Tên trường:</td>
       <td><input type="text" formControlName="name" placeholder="Tên trường" class="form-control"></td>
@@ -27,13 +27,13 @@
       <label *ngIf="schoolprovince" class="text-danger"> {{schoolprovince}} </label>
     </tr>
   </table>
-  <div class="imga" [formGroup]="hotelForm">
-    <img width="250" [src]="hotelForm.value.logo" class="img-fluid"/>
+  <div class="imga" [formGroup]="schoolsForm">
+    <img width="250" [src]="schoolsForm.value.logo" class="img-fluid"/>
   </div>
 </div>
 <br>
 <div class="btttn">
-  <button (click)="saveHotel()" class="btn btn-sm btn-success" [disabled]="!hotelForm.valid">Lưu</button>&nbsp;&nbsp;
+  <button (click)="saveHotel()" class="btn btn-sm btn-success" [disabled]="!schoolsForm.valid">Lưu</button>&nbsp;&nbsp;
   <button (click)="canelSchools()" class="btn btn-sm btn-success">Làm mới</button>
 </div>
 </div>

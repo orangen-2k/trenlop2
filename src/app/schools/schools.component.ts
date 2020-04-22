@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {HotelService} from '../hotel.service';
+import {SchoolsService} from '../schools.service';
 
 
 @Component({
@@ -13,21 +13,21 @@ export class SchoolsComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private route: Router,
-    private hotelService: HotelService) { }
+    private schoolsService: SchoolsService) { }
 
   ngOnInit() {
-    this.hotelService.getHotels().subscribe(data => {
+    this.schoolsService.getSchools().subscribe(data => {
       console.log(data);
-      this.hotels = data;
+      this.schools = data;
     });
   }
   
-  hotels = [];
+  schools = [];
   
   removeSchools(School) {
     let conf = confirm("Bạn muốn xóa trường này?");
     if (conf == true) {
-      this.hotelService.removeHotelById(School.id).subscribe(data => {
+      this.schoolsService.removeSchoolById(School.id).subscribe(data => {
         this.ngOnInit();
       });
     }
