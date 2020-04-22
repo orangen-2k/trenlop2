@@ -9,7 +9,8 @@
       <th width="300">Action</th>
     </tr>
     <tr *ngFor="let school of schools ">
-      <td>{{school.name}}</td>
+      <!-- <td [routerLink]="['../detail1', schools.id]">{{school.name}}</td> -->
+      <td><a [routerLink]="['../detail1', schools.id]">{{school.name}}</a></td>
       <td>&nbsp;
         <input [routerLink]="['detail1', school.id]"  class="btn btn-sm btn-success" type="button" value="Show"/>&nbsp;
         <input [routerLink]="['../../edit', school.id]"  class="btn btn-sm btn-info" type="button" value="Edit"/>&nbsp;
