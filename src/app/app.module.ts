@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { HotelService } from './hotel.service';
 import { SchoolsComponent } from './schools/schools.component';
 import { ClasssComponent } from './classs/classs.component';
 import { AddSchComponent } from './add-sch/add-sch.component';
@@ -25,6 +24,6 @@ import { SchoolsService } from './schools.service';
   ],
   declarations: [ AppComponent, SchoolsComponent, ClasssComponent, AddSchComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HotelService, SchoolsService]
+  providers: [ SchoolsService]
 })
 export class AppModule { }
