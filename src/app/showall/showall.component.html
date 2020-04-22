@@ -2,7 +2,7 @@
   <h3 class="card-header">Angular 8 Custom Pagination Example</h3>
   <div class="card-body">
   <li *ngFor="let ds of array">
-    <a [routerLink]="['../detail1', array.id]">{{ds.name}}</a>
+    <a [routerLink]="['../detail1', ds.id]">{{ds.name}}</a>
   </li>
   </div>
   <div class="card-footer pb-0 pt-3">
