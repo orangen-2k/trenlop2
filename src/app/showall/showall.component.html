@@ -1,10 +1,10 @@
 <div class="card text-center m-3">
   <h3 class="card-header">Angular 8 Custom Pagination Example</h3>
   <div class="card-body">
-      <div *ngFor="let item of pagedItems">{{item.name}} for {{item.product}}</div>
+      <div *ngFor="let ds of pagedItems">{{ds.name}}</div>
   </div>
   <div class="card-footer pb-0 pt-3">
-      <jw-pagination [items]="data" (changePage)="beginPagination($event)"></jw-pagination>
+      <jw-pagination [items]="schools" (changePage)="beginPagination($event)"></jw-pagination>
   </div>
 
 </div>

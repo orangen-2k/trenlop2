@@ -1,4 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import {SchoolsService} from '../schools.service';
 
 @Component({
   selector: 'app-showall',
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowallComponent implements OnInit {
 
-   title = 'custom-pagination-angular';
-  data = [];
+  schools = [];
   pagedItems: Array<any>;
-  constructor() { }
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private schoolsService: SchoolsService) { }
   ngOnInit() {
-    this.data = Array(1000).fill(0).map((x, i) => ({ id: (i + 1), name: `Item Paged ${i + 1}`, product: `Product ${i + 1}` }));
+    this.schoolsService.getSchools().subscribe(data => {
+      console.log(data);
+      this.schools = data;
+    });
   }
   beginPagination(pagedItems: Array<any>) {
     this.pagedItems = pagedItems;
