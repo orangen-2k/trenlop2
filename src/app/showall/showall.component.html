@@ -1,12 +1,10 @@
-<div class="card text-center m-3">
-  <h3 class="card-header">Angular 8 Custom Pagination Example</h3>
-  <div class="card-body">
-  <li *ngFor="let ds of array">
-    <a [routerLink]="['../detail1', ds.id]">{{ds.name}}</a>
-  </li>
-  </div>
-  <div class="card-footer pb-0 pt-3">
-      <jw-pagination [items]="schools" (changePage)="beginPagination($event)"></jw-pagination>
-  </div>
-
-</div>
+<table border="1" align="center" id="myTable">
+    <tr>
+      <th width="500">Danh sách trường học</th>
+      <th width="300">Action</th>
+    </tr>
+    <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <td></td>
+      <td></td>
+  </tr>
+  </table>
