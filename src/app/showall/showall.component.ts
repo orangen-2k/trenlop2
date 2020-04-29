@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from ''
+import { data } from '../Moack'
 
 @Component({
   selector: 'app-showall',
@@ -7,7 +7,8 @@ import { data } from ''
   styleUrls: ['./showall.component.css']
 })
 export class ShowallComponent implements OnInit {
-
+  items = data;
+  
   constructor(
     ) { }
 
