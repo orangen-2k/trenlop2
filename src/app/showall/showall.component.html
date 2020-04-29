@@ -3,10 +3,12 @@
       <th width="500">Danh sách trường học</th>
       <th width="300">Action</th>
     </tr>
+    <tbody>
     <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
       <td>{{items.id}}</td>
       <td>{{items.name}}</td>
   </tr>
+  </tbody>
   </table>
   <ngb-pagination
   [(page)]="page"
