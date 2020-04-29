@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { data } from ''
 
 @Component({
   selector: 'app-showall',
