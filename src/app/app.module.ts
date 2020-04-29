@@ -4,6 +4,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { AppRoutingModule } from './app-routing.module.ts';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,7 @@ import { ShowallComponent } from './showall/showall.component';
 
 @NgModule({
   imports:      [ 
-    BrowserModule, FormsModule, HttpClientModule,ReactiveFormsModule,
+    BrowserModule, FormsModule, HttpClientModule,ReactiveFormsModule,AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component: SchoolsComponent},
       {path: 'add', component: AddSchComponent},
