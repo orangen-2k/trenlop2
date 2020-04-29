@@ -8,11 +8,12 @@ import { data } from '../Moack'
 })
 export class ShowallComponent implements OnInit {
   items = data;
-  
+page = 1;
+pageSize = 10;
   constructor(
     ) { }
 
   ngOnInit() {
-    
+    console.log(this.items);
   }
 }

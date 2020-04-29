@@ -4,7 +4,11 @@
       <th width="300">Action</th>
     </tr>
     <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-      <td></td>
-      <td></td>
+      <td>{{items.id}}</td>
+      <td>{{items.name}}</td>
   </tr>
   </table>
+  <ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="items.length"></ngb-pagination>
